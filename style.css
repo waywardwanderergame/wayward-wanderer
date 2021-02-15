@@ -219,6 +219,10 @@ body {
   margin-right: 10px;
 }
 
+#difficulty-dropdown[data-expanded] {
+  width: 418px;
+}
+
 #go-button {
   float: left;
   width: 81px;
