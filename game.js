@@ -26,7 +26,7 @@
   var showMenuButton = document.getElementById("show-menu-button");
   var hideMenuButton = document.getElementById("hide-menu-button");
 
-  // Hide the "mode" dropdown on browsers without geolocation.
+  // Hide the "mode" dropdown on browsers without Geolocation API support.
   if (!("geolocation" in navigator)) {
     // Hide the "mode" dropdown.
     document.getElementById("mode-dropdown").style.display = "none";
