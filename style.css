@@ -280,7 +280,7 @@ body {
   font-size: 16px;
   overflow: auto; /* Allow scrolling. */
   -ms-overflow-style: none; /* Hide the scrollbar for IE and Edge. */
-  scrollbar-width: none; /* Hide the scrollbar for Firebox. */
+  scrollbar-width: none; /* Hide the scrollbar for Firefox. */
   padding: 10px 15px;
   padding-bottom: 90px;
   box-sizing: border-box;
