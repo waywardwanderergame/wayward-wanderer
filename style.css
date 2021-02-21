@@ -152,10 +152,6 @@ body {
   box-sizing: border-box;
   border: none;
   outline: none;
-  -khtml-border-radius: 32px;
-  -o-border-radius: 32px;
-  -moz-border-radius: 32px;
-  -webkit-border-radius: 32px;
   border-radius: 32px;
   font-size: 18px;
   text-transform: uppercase;
@@ -300,10 +296,6 @@ body {
 }
 
 #map {
-  -khtml-border-radius: 5px;
-  -o-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
   border-radius: 5px;
   width: 100%;
   display: none;
@@ -319,10 +311,6 @@ body {
   border: 0;
   padding: 10px 15px;
   background: rgba(0, 0, 0, 0.5);
-  -khtml-border-radius: 20px;
-  -o-border-radius: 20px;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
   border-radius: 20px;
   text-align: center;
   cursor: pointer;
