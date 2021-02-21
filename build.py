@@ -50,17 +50,12 @@ not_found = not_found.replace(
 with open("build/not-found.html", "w") as f:
     f.write(not_found)
 
-# Build scripts.
-for filename in ["common.js", "game.js"]:
-    with open(filename) as f:
-        script = f.read()
-    script = script.replace("YOUR_GOOGLE_API_KEY", args.google_api_key)
-    script = script.replace(
-        "YOUR_GOOGLE_ANALYTICS_MEASUREMENT_ID",
-        args.google_analytics_measurement_id,
-    )
-    with open(os.path.join("build", filename), "w") as f:
-        f.write(script)
+# Build the script.
+with open("script.js") as f:
+    script = f.read()
+script = script.replace("YOUR_GOOGLE_API_KEY", args.google_api_key)
+with open("build/script.js", "w") as f:
+    f.write(script)
 
 # Minify the web app manifest.
 with open("manifest.webmanifest") as f:

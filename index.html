@@ -29,8 +29,7 @@
     <!-- Preloads -->
     <link rel="preload" href="background.png" as="image" />
     <link rel="preload" href="loader.gif" as="image" />
-    <link rel="preload" href="common.js" as="script" />
-    <link rel="preload" href="game.js" as="script" />
+    <link rel="preload" href="script.js" as="script" />
 
     <!-- Icons -->
     <link rel="shortcut icon" sizes="16x16 24x24 32x32 48x48 64x64" href="favicon.ico" />
@@ -172,12 +171,28 @@
       </div>
     </aside>
 
-    <script defer src="common.js"></script>
-    <script defer src="game.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_GOOGLE_ANALYTICS_MEASUREMENT_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'YOUR_GOOGLE_ANALYTICS_MEASUREMENT_ID', {
+        custom_map: {
+          dimension0: "mode",
+          dimension1: "difficulty",
+          dimension2: "destination",
+          metric0: "exploration_time_msec",
+        }
+      });
+    </script>
+
+    <!-- Scripts -->
+    <script defer src="script.js"></script>
     <script
       defer
       src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_API_KEY&callback=onGoogleMapsApiReady"
     ></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_GOOGLE_ANALYTICS_MEASUREMENT_ID"></script>
   </body>
 </html>
