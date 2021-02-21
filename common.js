@@ -18,20 +18,6 @@
   // Get the page content HTML element.
   var pageContent = document.getElementById("page-content");
 
-  // Vertically center the page content on browsers without CSS transforms.
-  if (
-    !("oTransform" in document.body.style) &&
-    !("webkitTransform" in document.body.style) &&
-    !("mozTransform" in document.body.style) &&
-    !("msTransform" in document.body.style) &&
-    !("transform" in document.body.style)
-  ) {
-    window.onresize = function () {
-      pageContent.style.marginTop = -Math.floor(pageContent.clientHeight / 2) + "px";
-    };
-    setTimeout(window.onresize, 0);
-  }
-
   // Prevent scrolling when grabbing the page content.
   pageContent.ontouchmove = function () {
     return false;
