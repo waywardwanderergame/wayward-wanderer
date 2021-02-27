@@ -241,6 +241,35 @@ body {
 }
 
 /*
+ * GitHub Button
+ */
+
+#github-button {
+  position: fixed;
+  right: 15px;
+  top: 15px;
+  color: white;
+  text-decoration: none;
+  font-size: 12px;
+  color: #333;
+  font-weight: 600;
+  background-color: #ddd;
+  background-image: linear-gradient(#eee, #ddd);
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #999;
+}
+
+#github-button:hover,
+#github-button:active {
+  border-color: #333;
+}
+
+#github-button:active {
+  background-image: linear-gradient(#ccc, #ddd);
+}
+
+/*
  * Google Street View Panorama
  */
 
