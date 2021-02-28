@@ -67,7 +67,7 @@ body {
 }
 
 body {
-  font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 16px;
   background-color: #39f;
   background-image: url("background.png");
@@ -301,7 +301,7 @@ body {
   width: 100%;
   max-width: 540px;
   max-height: 100%;
-  font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 16px;
   overflow: auto; /* Allow scrolling. */
   -ms-overflow-style: none; /* Hide the scrollbar for IE and Edge. */
