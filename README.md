@@ -4,7 +4,7 @@ Wayward Wanderer is an adventure game in Google Street View. You are dropped at 
 
 Try the game out at [waywardwanderer.com](https://waywardwanderer.com/).
 
-Give the game an upvote on [Product Hunt](https://www.producthunt.com/posts/wayward-wanderer).
+Upvote the game on [Product Hunt](https://www.producthunt.com/posts/wayward-wanderer).
 
 ## Screenshots
 
