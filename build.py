@@ -32,9 +32,9 @@ except FileExistsError:
 # Build the index page.
 with open("index.html") as f:
     index = f.read()
-index = index.replace("YOUR_GOOGLE_API_KEY", args.google_api_key)
+index = index.replace("GOOGLE_API_KEY", args.google_api_key)
 index = index.replace(
-    "YOUR_GOOGLE_ANALYTICS_MEASUREMENT_ID",
+    "GOOGLE_ANALYTICS_MEASUREMENT_ID",
     args.google_analytics_measurement_id,
 )
 with open("build/index.html", "w") as f:
@@ -44,7 +44,7 @@ with open("build/index.html", "w") as f:
 with open("not-found.html") as f:
     not_found = f.read()
 not_found = not_found.replace(
-    "YOUR_GOOGLE_ANALYTICS_MEASUREMENT_ID",
+    "GOOGLE_ANALYTICS_MEASUREMENT_ID",
     args.google_analytics_measurement_id,
 )
 with open("build/not-found.html", "w") as f:
@@ -53,7 +53,7 @@ with open("build/not-found.html", "w") as f:
 # Build the script.
 with open("script.js") as f:
     script = f.read()
-script = script.replace("YOUR_GOOGLE_API_KEY", args.google_api_key)
+script = script.replace("GOOGLE_API_KEY", args.google_api_key)
 with open("build/script.js", "w") as f:
     f.write(script)
 
