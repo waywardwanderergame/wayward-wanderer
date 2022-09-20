@@ -69,12 +69,6 @@ with open("sitemap.xml") as in_file:
         for line in in_file:
             out_file.write(line.strip())
 
-# Minify the browser configuration schema.
-with open("browserconfig.xml") as in_file:
-    with open("build/browserconfig.xml", "w") as out_file:
-        for line in in_file:
-            out_file.write(line.strip())
-
 # Generate icons.
 icon = Image.open("icon.png")
 
@@ -98,13 +92,6 @@ icon.resize((167, 167)).save("build/icon-167x167.png", optimize=True)
 icon.resize((180, 180)).save("build/icon-180x180.png", optimize=True)
 icon.resize((192, 192)).save("build/icon-192x192.png", optimize=True)
 icon.resize((228, 228)).save("build/icon-228x228.png", optimize=True)
-
-icon.resize((70, 70)).save("build/smalltile.png", optimize=True)
-icon.resize((150, 150)).save("build/mediumtile.png", optimize=True)
-wide_tile = Image.new("RGB", size=(310, 150), color=(0x33, 0x99, 0xFF))
-wide_tile.paste(icon.resize((150, 150)), box=((310 - 150) // 2, 0))
-wide_tile.save("build/widetile.png", optimize=True)
-icon.resize((310, 310)).save("build/largetile.png", optimize=True)
 
 # Optimize images.
 Image.open("background.png").save("build/background.png", optimize=True)
