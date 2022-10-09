@@ -26,9 +26,9 @@
   var showMenuButton = document.getElementById("show-menu-button");
   var hideMenuButton = document.getElementById("hide-menu-button");
 
-  // Hide the "mode" dropdown on browsers without Geolocation API support.
+  // Hide the mode dropdown on browsers without Geolocation API support.
   if (!("geolocation" in navigator)) {
-    // Hide the "mode" dropdown.
+    // Hide the mode dropdown.
     document.getElementById("mode-dropdown").style.display = "none";
 
     // Expand the difficulty dropdown.
@@ -204,7 +204,7 @@
   var loading = false;
 
   // Load the game when the settings form is submitted.
-  document.getElementById("settings-form").onsubmit = function () {
+  document.getElementById("settings").onsubmit = function () {
     if (loading) return false;
 
     if (mode.value === "famous_places" || !("geolocation" in navigator)) {
@@ -269,7 +269,7 @@
     // Start loading.
     loading = true;
 
-    // Show the "go" button loader.
+    // Show the go button loader.
     goButton.disabled = true;
     goButton.setAttribute("data-loading", true);
     goButton.setAttribute("aria-busy", true);
@@ -373,17 +373,17 @@
     // Hide the map.
     map.style.display = "none";
 
-    // Hide the "keep exploring" button.
+    // Hide the keep exploring button.
     keepExploringButton.style.display = "none";
 
-    // Hide the "try another" button.
+    // Hide the try another button.
     tryAnotherButton.style.display = "none";
 
-    // Show the "hint" button.
-    hintButton.style.display = "block";
+    // Show the hint button.
+    hintButton.style.display = "inline-block";
 
-    // Show the "give up" button.
-    giveUpButton.style.display = "block";
+    // Show the give up button.
+    giveUpButton.style.display = "inline-block";
 
     // Point the Google Street View panorama in a random direction.
     googleStreetViewPanorama.setPov({
@@ -422,7 +422,7 @@
     };
   }
 
-  // Point the Google Street View panorama towards the destination when the "hint" button is clicked.
+  // Point the Google Street View panorama towards the destination when the hint button is clicked.
   hintButton.onclick = function () {
     if (!running) return;
 
@@ -474,17 +474,17 @@
     };
   }
 
-  // Preload the "give up" map when the mouse enters the "give up" button.
+  // Preload the give up map when the mouse enters the give up button.
   giveUpButton.onmouseenter = loadGiveUpMap;
 
-  // Give up when the "give up" button is clicked.
+  // Give up when the give up button is clicked.
   giveUpButton.onclick = function () {
     if (!running) return;
 
     // Stop the game.
     running = false;
 
-    // Show the "give up" map.
+    // Show the give up map.
     loadGiveUpMap();
     map.style.display = "block";
 
@@ -506,20 +506,20 @@
     inGameMessage.innerHTML =
       "You were " + distText + " away from " + getDestinationDisplayName() + ".";
 
-    // Hide the "hint" button.
+    // Hide the hint button.
     hintButton.style.display = "none";
 
-    // Hide the "give up" button.
+    // Hide the give up button.
     giveUpButton.style.display = "none";
 
-    // Show the "keep exploring" button.
-    keepExploringButton.style.display = "block";
+    // Show the keep exploring button.
+    keepExploringButton.style.display = "inline-block";
 
-    // Shrink the "try another" button.
+    // Shrink the try another button.
     tryAnotherButton.className = "menu-button menu-button-right";
 
-    // Show the "try another" button.
-    tryAnotherButton.style.display = "block";
+    // Show the try another button.
+    tryAnotherButton.style.display = "inline-block";
 
     // Show the menu.
     showMenu();
@@ -533,7 +533,7 @@
     });
   };
 
-  // Reduce menu clutter when the "keep exploring" button is clicked.
+  // Reduce menu clutter when the keep exploring button is clicked.
   keepExploringButton.onclick = function () {
     // Hide the menu.
     hideMenu();
@@ -544,10 +544,10 @@
     // Hide the map.
     map.style.display = "none";
 
-    // Hide the "keep exploring" button.
+    // Hide the keep exploring button.
     keepExploringButton.style.display = "none";
 
-    // Expand the "try another" button.
+    // Expand the try another button.
     tryAnotherButton.className = "menu-button";
 
     // Send a Google Analytics event.
@@ -558,9 +558,9 @@
     });
   };
 
-  // Reset the page when the "try another" button is clicked.
+  // Reset the page when the try another button is clicked.
   tryAnotherButton.onclick = function () {
-    // Hide the "go" button loader.
+    // Hide the go button loader.
     goButton.removeAttribute("data-loading");
     goButton.disabled = false;
     goButton.removeAttribute("aria-busy");
@@ -579,21 +579,21 @@
 
   function showMenu() {
     // Show the menu.
-    menuToggleBlock.removeAttribute("data-menu-hidden");
+    menuToggleBlock.removeAttribute("data-hidden");
 
-    // Hide the "show menu" button.
+    // Hide the show menu button.
     showMenuButton.style.display = "none";
 
-    // Show the "hide menu" button.
-    hideMenuButton.style.display = "block";
+    // Show the hide menu button.
+    hideMenuButton.style.display = "inline-block";
   }
 
-  // Show the menu and potentially preload the "give up" map when the "show menu" button is clicked.
+  // Show the menu and potentially preload the give up map when the show menu button is clicked.
   showMenuButton.onclick = function () {
     // Show the menu.
     showMenu();
 
-    // Preload the "give up" map if the game is running.
+    // Preload the give up map if the game is running.
     if (running) loadGiveUpMap();
 
     // Send a Google Analytics event.
@@ -606,16 +606,16 @@
 
   function hideMenu() {
     // Hide the menu.
-    menuToggleBlock.setAttribute("data-menu-hidden", true);
+    menuToggleBlock.setAttribute("data-hidden", true);
 
-    // Hide the "hide menu" button.
+    // Hide the hide menu button.
     hideMenuButton.style.display = "none";
 
-    // Show the "show menu" button.
+    // Show the show menu button.
     showMenuButton.style.display = "block";
   }
 
-  // Hide the menu when the "hide menu" button is clicked.
+  // Hide the menu when the hide menu button is clicked.
   hideMenuButton.onclick = function () {
     // Hide the menu.
     hideMenu();
@@ -665,20 +665,20 @@
     loadDestinationReachedMap();
     map.style.display = "block";
 
-    // Hide the "hint" button.
+    // Hide the hint button.
     hintButton.style.display = "none";
 
-    // Hide the "give up" button.
+    // Hide the give up button.
     giveUpButton.style.display = "none";
 
-    // Show the "keep exploring" button.
-    keepExploringButton.style.display = "block";
+    // Show the keep exploring button.
+    keepExploringButton.style.display = "inline-block";
 
-    // Shrink the "try another" button.
+    // Shrink the try another button.
     tryAnotherButton.className = "menu-button menu-button-right";
 
-    // Show the "try another" button.
-    tryAnotherButton.style.display = "block";
+    // Show the try another button.
+    tryAnotherButton.style.display = "inline-block";
 
     // Show the menu.
     showMenu();

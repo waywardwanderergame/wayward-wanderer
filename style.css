@@ -162,7 +162,7 @@ body {
   width: 204px;
 }
 
-.dropdown:after {
+.dropdown::after {
   content: "▼";
   position: absolute;
   top: 0;
@@ -208,10 +208,14 @@ body {
   color: transparent;
 }
 
+#settings {
+  font-size: 0;
+}
+
 #mode-dropdown,
 #difficulty-dropdown {
+  display: inline-block;
   width: 204px;
-  float: left;
   margin-right: 10px;
 }
 
@@ -220,8 +224,8 @@ body {
 }
 
 #go-button {
-  float: left;
   width: 81px;
+  text-transform: uppercase;
 }
 
 @media (max-width: 540px) {
@@ -229,22 +233,20 @@ body {
   #difficulty-dropdown,
   #difficulty-dropdown[data-expanded] {
     width: 100%;
-    float: none;
     margin-right: 0;
     margin-bottom: 10px;
   }
 
   #go-button {
     width: 100%;
-    float: none;
   }
 }
 
 /*
- * GitHub Button
+ * Star on GitHub Button
  */
 
-#github-button {
+#star-on-github-button {
   position: fixed;
   right: 15px;
   top: 15px;
@@ -260,12 +262,12 @@ body {
   border: 1px solid #999;
 }
 
-#github-button:hover,
-#github-button:active {
+#star-on-github-button:hover,
+#star-on-github-button:active {
   border-color: #333;
 }
 
-#github-button:active {
+#star-on-github-button:active {
   background-image: linear-gradient(#ccc, #ddd);
 }
 
@@ -316,7 +318,11 @@ body {
   display: none;
 }
 
-#menu-toggle-block[data-menu-hidden] {
+#menu-toggle-block {
+  font-size: 0;
+}
+
+#menu-toggle-block[data-hidden] {
   display: block;
 }
 
@@ -343,6 +349,7 @@ body {
   border-radius: 20px;
   text-align: center;
   cursor: pointer;
+  font-size: 16px;
 }
 
 .menu-button:hover {
@@ -355,12 +362,11 @@ body {
 
 .menu-button-left {
   width: 250px;
-  float: left;
+  margin-right: 10px;
 }
 
 .menu-button-right {
   width: 250px;
-  float: right;
 }
 
 #menu-toggle-buttons,
@@ -373,7 +379,7 @@ body {
 }
 
 @media (max-width: 540px) {
-  #menu-toggle-block[data-menu-hidden] {
+  #menu-toggle-block[data-hidden] {
     display: none;
   }
 
@@ -383,8 +389,11 @@ body {
 
   .menu-button-left,
   .menu-button-right {
-    float: none;
     width: 100%;
+  }
+
+  .menu-button-left {
+    margin-right: 0;
   }
 
   #menu-toggle-buttons {

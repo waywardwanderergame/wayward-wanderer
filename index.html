@@ -24,12 +24,25 @@
     <meta name="application-name" content="Wayward Wanderer" />
     <meta name="description" content="An adventure game in Google Street View" />
     <meta name="keywords" content="adventure,game,street view,famous places" />
-    <meta name="theme-color" content="#39F" />
+    <meta name="theme-color" content="#39f" />
 
     <!-- Preloads -->
     <link rel="preload" href="background.png" as="image" />
     <link rel="preload" href="loader.gif" as="image" />
     <link rel="preload" href="script.js" as="script" />
+
+    <!-- Styles -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
+    <noscript>
+      <style>
+        #description,
+        #settings {
+          display: none;
+        }
+      </style>
+    </noscript>
 
     <!-- Icons -->
     <link rel="shortcut icon" sizes="16x16 24x24 32x32 48x48 64x64" href="favicon.ico" />
@@ -40,7 +53,7 @@
     <!-- Web app manifest -->
     <link rel="manifest" href="manifest.webmanifest" />
 
-    <!-- Apple iOS -->
+    <!-- iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-title" content="Wayward Wanderer" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -54,44 +67,21 @@
     <link rel="apple-touch-icon" sizes="72x72" href="icon-72x72.png" />
     <link rel="apple-touch-icon" sizes="57x57" href="icon-57x57.png" />
 
-    <!-- Facebook Open Graph -->
-    <!-- https://developers.facebook.com/tools/debug/ -->
+    <!-- Open Graph -->
     <meta property="og:url" content="https://waywardwanderer.com/" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Wayward Wanderer" />
     <meta property="og:description" content="An adventure game in Google Street View" />
-    <meta property="og:image" content="https://waywardwanderer.com/open-graph-image.png" />
+    <meta property="og:image" content="https://waywardwanderer.com/open-graph.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
 
     <!-- Twitter Cards -->
-    <!-- https://cards-dev.twitter.com/validator -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:creator" content="@milesbarr" />
     <meta name="twitter:title" content="Wayward Wanderer" />
     <meta name="twitter:description" content="An adventure game in Google Street View" />
-    <meta name="twitter:image" content="https://waywardwanderer.com/twitter-card-image.png" />
-
-    <!-- QQ Mobile Browser -->
-    <meta name="x5-fullscreen" content="true" />
-    <meta name="x5-page-mode" content="app" />
-
-    <!-- UC Mobile Browser -->
-    <meta name="full-screen" content="yes" />
-    <meta name="browsermode" content="application" />
-
-    <!-- Styles -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans" rel="stylesheet" />
-    <link href="style.css" rel="stylesheet" />
-    <noscript>
-      <style>
-        #description,
-        #settings-form {
-          display: none;
-        }
-      </style>
-    </noscript>
+    <meta name="twitter:image" content="https://waywardwanderer.com/twitter-card.png" />
   </head>
 
   <body>
@@ -104,7 +94,7 @@
         <p id="description">From an unknown location, find a way to your destination</p>
       </header>
 
-      <form id="settings-form">
+      <form id="settings">
         <!-- Mode dropdown -->
         <div id="mode-dropdown" class="dropdown">
           <select id="mode" aria-label="Mode">
@@ -122,16 +112,14 @@
           </select>
         </div>
 
-        <!-- "Go" button -->
-        <input id="go-button" class="primary-button" type="submit" value="GO" />
-
-        <div style="clear: both"></div>
+        <!-- Go button -->
+        <button id="go-button" class="primary-button">Go</button>
       </form>
     </main>
 
-    <!-- GitHub button -->
+    <!-- Star on GitHub button -->
     <a
-      id="github-button"
+      id="star-on-github-button"
       href="https://github.com/waywardwanderergame/wayward-wanderer"
       target="_blank"
       aria-label="Star waywardwanderergame/wayward-wanderer on GitHub"
@@ -145,32 +133,28 @@
     <aside id="menu">
       <div id="menu-toggle-block">
         <h1 class="logo" translate="no">Wayward Wanderer</h1>
-
         <p id="in-game-message"></p>
-
         <img id="map" src="" draggable="false" alt="Map" aria-labelledby="in-game-message" />
 
-        <!-- "Hint" button -->
-        <button id="hint-button" class="menu-button menu-button-left" type="button">Hint</button>
+        <!-- Hint button -->
+        <button type="button" id="hint-button" class="menu-button menu-button-left">Hint</button>
 
-        <!-- "Give up" button -->
-        <button id="give-up-button" class="menu-button menu-button-right" type="button">Give Up</button>
+        <!-- Give up button -->
+        <button type="button" id="give-up-button" class="menu-button menu-button-right">Give Up</button>
 
-        <!-- "Keep exploring" button -->
-        <button id="keep-exploring-button" class="menu-button menu-button-left" type="button">Keep Exploring</button>
+        <!-- Keep exploring button -->
+        <button type="button" id="keep-exploring-button" class="menu-button menu-button-left">Keep Exploring</button>
 
-        <!-- "Try another" button -->
-        <button id="try-another-button" class="menu-button menu-button-right" type="button">Try Another</button>
-
-        <div style="clear: both"></div>
+        <!-- Try another button -->
+        <button type="button" id="try-another-button" class="menu-button menu-button-right">Try Another</button>
       </div>
 
       <div id="menu-toggle-buttons">
-        <!-- "Show menu" button -->
-        <button id="hide-menu-button" class="menu-button" type="button" aria-expanded="true">Hide</button>
+        <!-- Show menu button -->
+        <button type="button" id="hide-menu-button" class="menu-button" aria-expanded="true">Hide</button>
 
-        <!-- "Hide menu" button -->
-        <button id="show-menu-button" class="menu-button" type="button" aria-expanded="false">Menu</button>
+        <!-- Hide menu button -->
+        <button type="button" id="show-menu-button" class="menu-button" aria-expanded="false">Menu</button>
       </div>
     </aside>
 
